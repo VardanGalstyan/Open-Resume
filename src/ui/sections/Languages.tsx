@@ -1,3 +1,4 @@
+import { FaLanguage } from "react-icons/fa";
 import SectionTitle from "../SectionTitle";
 
 const langLevels: { [key: number]: string }[] = [
@@ -21,15 +22,17 @@ const Languages = () => {
 
   return (
     <section>
-      <SectionTitle
-        title="Languages"
-        url="https://img.icons8.com/ios-filled/60/252525/language.png"
-      />
+      <SectionTitle title="Languages">
+        <FaLanguage />
+      </SectionTitle>
       <div className="flex w-full gap-x-2">
         <div>
           <div className="h-3.5" />
           {languages.map(({ lang }) => (
-            <div className="text-[10px] leading-3 text-secondary" key={lang}>
+            <div
+              className="text-[10px] leading-3 text-prime dark:text-secondary"
+              key={lang}
+            >
               {lang}
             </div>
           ))}
@@ -48,7 +51,9 @@ const Languages = () => {
                   key={i}
                   className="relative flex items-center justify-center mb-1"
                 >
-                  <span className="text-[8px] text-secondary">{label}</span>
+                  <span className="text-[8px] text-teal-800 dark:text-secondary">
+                    {label}
+                  </span>
                 </div>
               );
             })}
@@ -66,13 +71,13 @@ const Languages = () => {
                     style={{
                       gridTemplateColumns: `repeat(${maxLevel}, minmax(0,1fr))`,
                     }}
-                    className="w-full grid divide-x divide-gray-800"
+                    className="w-full grid divide-x dark:divide-gray-800"
                   >
                     {Array.from({ length: maxLevel }).map((_, col) => (
                       <div
                         key={col}
                         className={`h-2 rounded-full flex items-center ${
-                          col < levelIndex ? "bg-green-600" : ""
+                          col < levelIndex ? "bg-[#2E5077]" : ""
                         } px-2`}
                       ></div>
                     ))}

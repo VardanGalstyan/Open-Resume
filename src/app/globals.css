@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ededed;
   --foreground: #171717;
@@ -13,6 +15,12 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-roboto: var(--font-roboto);
+}
+
+@theme {
+  --color-prime: #2e5077;
+  --color-sec: #4da1a9;
+  --color-light: #f6f4f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,5 +41,9 @@ body {
     & > *:not(:last-child) {
       @apply border-b border-gray-700 pb-4;
     }
+  }
+
+  .icon {
+    @apply dark:text-prime text-white size-3.5;
   }
 }

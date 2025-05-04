@@ -1,3 +1,4 @@
+import { FaUserGraduate } from "react-icons/fa";
 import SectionTitle from "../SectionTitle";
 
 const universities = [
@@ -16,18 +17,19 @@ const universities = [
 const Education = () => {
   return (
     <section>
-      <SectionTitle
-        title="Education"
-        url="https://img.icons8.com/ios-filled/60/252525/book.png"
-      />
+      <SectionTitle title="Education">
+        <FaUserGraduate />
+      </SectionTitle>
       <div className="flex flex-col gap-2">
         {universities.map(({ university, year, major }, index) => (
           <div className="flex flex-col" key={`${year}-${major}-${index}`}>
-            <span className="text-sm font-bold">{major}</span>
-            <span className="font-bold text-secondary text-[10px]">
+            <span className="text-sm font-bold dark:text-white text-sky-900">
+              {major}
+            </span>
+            <span className="font-bold dark:text-secondary text-teal-800 text-[10px]">
               {university}
             </span>
-            <span className="font-bold text-secondary text-sm text-[10px]">
+            <span className="font-bold text-teal-800 text-sm text-[10px] dark:text-secondary">
               {year}
             </span>
           </div>

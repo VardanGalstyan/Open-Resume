@@ -3,7 +3,7 @@
 const Header = () => {
   return (
     <header className="flex flex-col items-center justify-center gap-2">
-      <div className="size-18 bg-white rounded-full p-0.5">
+      <div className="size-18 dark:bg-white bg-prime rounded-full p-0.5">
         <img
           src="https://avatars.githubusercontent.com/u/81989128"
           alt="Avatar"
@@ -11,10 +11,10 @@ const Header = () => {
         />
       </div>
       <div className="flex flex-col items-center">
-        <div className="uppercase tracking-wide font-semibold text-3xl text-white">
-          Vardan Galstyan
+        <div className="uppercase tracking-wide font-semibold text-3xl dark:text-white text-prime">
+          John Doe
         </div>
-        <h1 className="text-lg font-[400] tracking-wider uppercase text-[#a4b3cd]">
+        <h1 className="text-lg tracking-wider uppercase text-sec">
           Web Developer
         </h1>
       </div>

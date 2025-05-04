@@ -1,3 +1,4 @@
+import { IoMdGitNetwork } from "react-icons/io";
 import SectionTitle from "../SectionTitle";
 
 const projects = [
@@ -18,19 +19,20 @@ const projects = [
 const Projects = () => {
   return (
     <section>
-      <SectionTitle
-        title="Projects"
-        url="https://img.icons8.com/ios-filled/60/252525/project.png"
-      />
+      <SectionTitle title="Projects">
+        <IoMdGitNetwork />
+      </SectionTitle>
       <div className="flex flex-col gap-1">
         {projects.map(({ title, description, url }, index) => (
           <div key={`${title}-${index}`}>
-            <div className="text-sm font-bold">
+            <div className="text-sm font-bold text-sky-900 dark:text-white">
               <a target="_blank" href={url}>
                 {title}
               </a>
             </div>
-            <p className="text-[11px] text-secondary">{description}</p>
+            <p className="text-[11px] dark:text-secondary text-teal-800">
+              {description}
+            </p>
           </div>
         ))}
       </div>

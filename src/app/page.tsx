@@ -14,7 +14,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg font-roboto">
       <div
         style={{ width, height }}
-        className="bg-[#1e2738] flex items-center justify-start p-8 flex-col gap-4"
+        className="dark:bg-[#1e2738] bg-[#F6F4F0] flex items-center justify-start p-8 flex-col gap-4"
       >
         {/* Header Section */}
         <Header />

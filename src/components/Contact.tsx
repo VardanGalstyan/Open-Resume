@@ -2,10 +2,10 @@
 
 const Contact = () => {
   return (
-    <div className="flex items-start text-secondary justify-evenly gap-2 border-y-[1px] border-gray-600 py-2 w-full">
+    <div className="flex items-start dark:text-light text-prime justify-evenly gap-2 border-y-[1px] border-gray-600 py-2 w-full">
       <div className="flex items-center gap-2">
         <img
-          src="https://img.icons8.com/ios-filled/50/a4b3cd/phone.png"
+          src="https://img.icons8.com/ios-filled/50/2E5077/phone.png"
           alt="Gmail Icon"
           className="w-5 h-5"
         />
@@ -13,7 +13,7 @@ const Contact = () => {
       </div>
       <div className="flex items-center gap-2">
         <img
-          src="https://img.icons8.com/ios-filled/50/a4b3cd/gmail-new.png"
+          src="https://img.icons8.com/ios-filled/50/2E5077/gmail-new.png"
           alt="Gmail Icon"
           className="w-5 h-5"
         />
@@ -23,14 +23,14 @@ const Contact = () => {
       <div className="flex items-center gap-2">
         <div>
           <img
-            src="https://img.icons8.com/ios-filled/50/a4b3cd/linkedin.png"
+            src="https://img.icons8.com/ios-filled/50/2E5077/linkedin.png"
             alt="Gmail Icon"
             className="w-5 h-5"
           />
         </div>
         <div>
           <img
-            src="https://img.icons8.com/ios-filled/50/a4b3cd/github.png"
+            src="https://img.icons8.com/ios-filled/50/2E5077/github.png"
             alt="Gmail Icon"
             className="w-5 h-5"
           />

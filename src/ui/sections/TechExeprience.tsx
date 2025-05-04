@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { GrTechnology } from "react-icons/gr";
 import SectionTitle from "../SectionTitle";
 import TechSkill from "../TechSkill";
 
@@ -18,10 +19,9 @@ const maxExpYears = skillset.reduce(
 const TechExeprience = () => {
   return (
     <section>
-      <SectionTitle
-        title="Tech Experience (in Years)"
-        url="https://img.icons8.com/ios-filled/50/252525/time.png"
-      />
+      <SectionTitle title="Tech Experience (in Years)">
+        <GrTechnology />
+      </SectionTitle>
       <div
         style={{
           gridTemplateColumns: `repeat(${maxExpYears}, minmax(0,1fr))`,
@@ -30,7 +30,7 @@ const TechExeprience = () => {
       >
         {[...Array(maxExpYears)].map((_, index) => (
           <div key={index} className="border-x h-1 border-gray-600 relative">
-            <span className="text-[8px] absolute -top-2 right-[45%] text-center text-secondary">
+            <span className="text-[8px] absolute -top-2 right-[45%] text-center text-sky-900 dark:text-secondary">
               {index + 1}
             </span>
           </div>
