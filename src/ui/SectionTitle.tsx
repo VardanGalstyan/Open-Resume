@@ -10,7 +10,7 @@ const SectionTitle = (props: Props) => {
   if (!url) return null;
 
   return (
-    <div className="mb-5 flex gap-2 items-center text-xs uppercase text-secondary">
+    <div className="pb-2 flex gap-2 items-center text-xs uppercase text-secondary">
       <div className="p-1 rounded-sm bg-secondary w-fit">
         <img src={url} alt="User Icon" className="w-3.5 h-3.5" />
       </div>

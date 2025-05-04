@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
+
 import SectionTitle from "../SectionTitle";
 import TechSkill from "../TechSkill";
 
-/* eslint-disable @next/next/no-img-element */
 export const skillset = [
   { skill: "React", exp: 3 },
   { skill: "JavaScript", exp: 3 },
@@ -16,7 +17,7 @@ const maxExpYears = skillset.reduce(
 
 const TechExeprience = () => {
   return (
-    <section>
+    <section className="inner-section">
       <SectionTitle
         title="Tech Experience (in Years)"
         url="https://img.icons8.com/ios-filled/50/252525/time.png"
@@ -25,7 +26,7 @@ const TechExeprience = () => {
         style={{
           gridTemplateColumns: `repeat(${maxExpYears}, minmax(0,1fr))`,
         }}
-        className="w-full grid gap-y-1 -translate-y-1"
+        className="w-full grid gap-y-1 pb-1 pt-2"
       >
         {[...Array(maxExpYears)].map((_, index) => (
           <div key={index} className="border-x h-1 border-gray-600 relative">
@@ -38,9 +39,9 @@ const TechExeprience = () => {
       <div className="w-full flex flex-col gap-y-1">
         {skillset
           .sort((a, b) => b.exp - a.exp)
-          .map(({ skill, exp }) => (
+          .map(({ skill, exp }, index) => (
             <div
-              key={`${exp}-${skill}`}
+              key={`${exp}-${skill}-${index}`}
               style={{
                 display: "grid",
                 gridTemplateColumns: `repeat(${maxExpYears}, minmax(0, 1fr))`,
