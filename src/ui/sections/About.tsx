@@ -2,7 +2,7 @@ import SectionTitle from "../SectionTitle";
 
 const About = () => {
   return (
-    <section className="h-fit inner-section">
+    <section className="h-fit">
       <SectionTitle
         title="About me"
         url="https://img.icons8.com/ios-filled/60/252525/user.png"

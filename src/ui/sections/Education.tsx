@@ -15,7 +15,7 @@ const universities = [
 
 const Education = () => {
   return (
-    <section className="inner-section">
+    <section>
       <SectionTitle
         title="Education"
         url="https://img.icons8.com/ios-filled/60/252525/book.png"
@@ -23,7 +23,7 @@ const Education = () => {
       <div className="flex flex-col gap-2">
         {universities.map(({ university, year, major }, index) => (
           <div className="flex flex-col" key={`${year}-${major}-${index}`}>
-            <span className="text-sm uppercase">{major}</span>
+            <span className="text-sm font-bold">{major}</span>
             <span className="font-bold text-secondary text-[10px]">
               {university}
             </span>

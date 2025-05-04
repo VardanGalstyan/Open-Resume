@@ -17,7 +17,7 @@ const maxExpYears = skillset.reduce(
 
 const TechExeprience = () => {
   return (
-    <section className="inner-section">
+    <section>
       <SectionTitle
         title="Tech Experience (in Years)"
         url="https://img.icons8.com/ios-filled/50/252525/time.png"

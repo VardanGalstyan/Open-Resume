@@ -28,6 +28,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.inner-section {
-  @apply border-b border-gray-700 pb-4;
+@layer components {
+  .children-divided {
+    & > *:not(:last-child) {
+      @apply border-b border-gray-700 pb-4;
+    }
+  }
 }

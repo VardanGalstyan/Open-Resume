@@ -4,7 +4,7 @@ const skills = ["Communication", "Project Management", "Leadership"];
 
 const SoftSkills = () => {
   return (
-    <section className="inner-section">
+    <section>
       <SectionTitle
         title="Soft Skills"
         url="https://img.icons8.com/ios-filled/50/252525/settings.png"

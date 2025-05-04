@@ -20,7 +20,7 @@ const Languages = () => {
   const maxLevel = langLevels.length;
 
   return (
-    <section className="inner-section">
+    <section>
       <SectionTitle
         title="Languages"
         url="https://img.icons8.com/ios-filled/60/252525/language.png"
