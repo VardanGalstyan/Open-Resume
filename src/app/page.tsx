@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
-import Contact from "@/components/Contact";
-import Header from "@/components/Header";
 import Body from "@/components/Body";
+import Contact from "@/components/Contact";
+import DarkToggle from "@/components/DarkToggle";
+import Header from "@/components/Header";
 
 export default function Home() {
   const sizeA4 = [210, 297]; // A4 size in mm
@@ -14,8 +15,9 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg font-roboto">
       <div
         style={{ width, height }}
-        className="dark:bg-[#1e2738] bg-[#F6F4F0] flex items-center justify-start p-8 flex-col gap-4"
+        className="dark:bg-[#1e2738] bg-[#F6F4F0] flex items-center justify-start p-8 flex-col gap-4 relative"
       >
+        <DarkToggle />
         {/* Header Section */}
         <Header />
         {/* Contact Section */}
