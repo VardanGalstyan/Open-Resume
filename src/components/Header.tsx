@@ -2,12 +2,12 @@
 
 const Header = () => {
   return (
-    <header className="flex flex-col items-center justify-center gap-2">
+    <header className="flex flex-col items-center justify-center gap-2 flex-1/3">
       <div className="size-18 dark:bg-white bg-prime rounded-full p-0.5">
         <img
           src="https://avatars.githubusercontent.com/u/81989128"
           alt="Avatar"
-          className="rounded-full w-full object-cover h-full"
+          className="rounded-full w-full object-cover h-full select-none"
         />
       </div>
       <div className="flex flex-col items-center">

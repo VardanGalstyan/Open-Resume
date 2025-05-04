@@ -17,7 +17,7 @@ const DarkToggle = () => {
   };
 
   return (
-    <div className="absolute top-5 right-5">
+    <div className="absolute top-2 left-2">
       <DarkModeSwitch
         checked={isDarkMode}
         sunColor="#2e5077"

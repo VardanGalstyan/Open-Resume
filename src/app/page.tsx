@@ -18,11 +18,10 @@ export default function Home() {
         className="dark:bg-[#1e2738] bg-[#F6F4F0] flex items-center justify-start p-8 flex-col gap-4 relative"
       >
         <DarkToggle />
-        {/* Header Section */}
-        <Header />
-        {/* Contact Section */}
-        <Contact />
-        {/* Main Section */}
+        <div className="flex justify-between w-full border-b border-prime pb-5">
+          <Header />
+          <Contact />
+        </div>
         <Body />
       </div>
     </div>
