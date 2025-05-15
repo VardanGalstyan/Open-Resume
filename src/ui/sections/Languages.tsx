@@ -71,7 +71,7 @@ const Languages = () => {
                     style={{
                       gridTemplateColumns: `repeat(${maxLevel}, minmax(0,1fr))`,
                     }}
-                    className="w-full grid divide-x dark:divide-gray-800"
+                    className="w-full grid divide-x dark:divide-gray-800 divide-[#F6F4F0]"
                   >
                     {Array.from({ length: maxLevel }).map((_, col) => (
                       <div

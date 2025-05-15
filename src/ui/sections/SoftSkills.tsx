@@ -9,7 +9,7 @@ const SoftSkills = () => {
       <SectionTitle title="Soft Skills">
         <FaUserCog />
       </SectionTitle>
-      <div className="flex gap-x-1 gap-y-1 flex-wrap text-[11px]">
+      <div className="flex gap-x-1 gap-y-1 flex-wrap text-[11px] text-white">
         {skills.map((skill, index) => (
           <span
             className="px-2 py-[2px] bg-[#2E5077] rounded-sm font-bold"

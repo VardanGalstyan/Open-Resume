@@ -11,7 +11,7 @@ const TechSkill = (props: Props) => {
   return (
     <div
       style={{ gridColumn: `span ${exp}` }}
-      className="rounded-sm dark:bg-prime bg-[#2E5077] transition-all col-span-6 text-sm px-1"
+      className="rounded-sm dark:bg-prime bg-[#2E5077] text-white transition-all col-span-6 text-sm px-1"
     >
       <span className="text-[11px] font-semibold">{skill}</span>
     </div>
