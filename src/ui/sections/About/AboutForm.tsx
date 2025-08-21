@@ -1,13 +1,19 @@
+"use client";
+
 import { orAtom, portalModalAtom } from "@/app/state";
+import { OrType } from "@/app/types";
 import ModalPortal from "@/ui/ModalPortal";
 import TextLimit from "@/ui/TextLimit";
 import { useAtom, useSetAtom } from "jotai";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-function AboutForm() {
+function AboutForm({ sessionData }: { sessionData?: OrType }) {
   // Global States
   const [{ about }, setAbout] = useAtom(orAtom);
   const setIsModalOpen = useSetAtom(portalModalAtom);
+
+  const router = useRouter();
 
   // Local State
   const [aboutText, setAboutText] = useState(about);
@@ -16,8 +22,19 @@ function AboutForm() {
     setAboutText(about);
   }, [about]);
 
+  async function saveResume(resumeData: string) {
+    await fetch("/api/save-resume", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...sessionData, about: resumeData }),
+    });
+
+    router.refresh();
+  }
+
   function saveUpdatedText(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
+    saveResume(aboutText);
     setAbout((prev) => ({ ...prev, about: aboutText }));
     setIsModalOpen(false);
   }

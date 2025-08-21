@@ -1,3 +1,5 @@
+"use client";
+
 import { portalModalAtom } from "@/app/state";
 import clsx from "clsx";
 import { useSetAtom } from "jotai";
