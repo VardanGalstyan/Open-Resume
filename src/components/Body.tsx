@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import About from "@/ui/sections/About";
 import Education from "@/ui/sections/Education";
 import Languages from "@/ui/sections/Languages";

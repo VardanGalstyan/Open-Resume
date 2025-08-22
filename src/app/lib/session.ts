@@ -1,4 +1,3 @@
-// lib/session.js
 import { SessionOptions } from "iron-session";
 
 export const sessionOptions: SessionOptions = {
