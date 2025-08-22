@@ -1,26 +1,19 @@
 "use client";
 
-import { orAtom, portalModalAtom } from "@/app/state";
+import { portalModalAtom } from "@/app/state";
 import { OrType } from "@/app/types";
 import ModalPortal from "@/ui/ModalPortal";
 import TextLimit from "@/ui/TextLimit";
-import { useAtom, useSetAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function AboutForm({ sessionData }: { sessionData?: OrType }) {
-  // Global States
-  const [{ about }, setAbout] = useAtom(orAtom);
-  const setIsModalOpen = useSetAtom(portalModalAtom);
-
   const router = useRouter();
 
-  // Local State
-  const [aboutText, setAboutText] = useState(about);
+  const setIsModalOpen = useSetAtom(portalModalAtom);
 
-  useEffect(() => {
-    setAboutText(about);
-  }, [about]);
+  const [aboutText, setAboutText] = useState(sessionData?.about || "");
 
   async function saveResume(resumeData: string) {
     await fetch("/api/save-resume", {
@@ -35,7 +28,6 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
   function saveUpdatedText(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     saveResume(aboutText);
-    setAbout((prev) => ({ ...prev, about: aboutText }));
     setIsModalOpen(false);
   }
 
@@ -68,7 +60,7 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
             </button>
             <button
               type="button"
-              onClick={() => setAboutText(about)}
+              onClick={() => setAboutText(sessionData?.about || "")}
               className="px-3 py-1.5 bg-gray-200 text-gray-700 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors text-sm font-medium"
             >
               Reset
