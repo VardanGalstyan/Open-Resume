@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-
 import React from "react";
+import EditButton from "./buttons/edit-button";
 
 type Props = {
   children: React.ReactElement<{ className?: string }>;
@@ -21,6 +20,9 @@ const SectionTitle = (props: Props) => {
       <span className="tracking-wider text-prime font-semibold dark:text-white">
         {title}
       </span>
+      <div className="absolute top-0 right-0 opacity-0 transition-opacity group-hover:opacity-100">
+        <EditButton />
+      </div>
     </div>
   );
 };

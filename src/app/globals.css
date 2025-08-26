@@ -21,6 +21,7 @@
   --color-prime: #2e5077;
   --color-sec: #4da1a9;
   --color-light: #f6f4f0;
+  --color-prime-dark: #1e2738;
 }
 
 @media (prefers-color-scheme: dark) {
