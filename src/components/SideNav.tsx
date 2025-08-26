@@ -1,36 +1,109 @@
 "use client";
 
+import { navHighlightAtom } from "@/app/state";
 import clsx from "clsx";
-import { SidebarCloseIcon, SidebarOpenIcon } from "lucide-react";
+import { useSetAtom } from "jotai";
+import {
+  Briefcase,
+  ContactIcon,
+  Cpu,
+  Globe,
+  GraduationCap,
+  Presentation,
+  TypeOutline,
+  UserIcon,
+  UserRoundCog,
+} from "lucide-react";
 import { useState } from "react";
 
+const initialNavigation = [
+  { name: "Identity", icon: UserIcon, value: "identity", current: true },
+  { name: "Contact", icon: ContactIcon, value: "contact", current: false },
+  { name: "Profile", icon: TypeOutline, value: "profile", current: false },
+  { name: "Experience", icon: Briefcase, value: "experience", current: false },
+  { name: "Technical Skills", icon: Cpu, value: "tech-skills", current: false },
+  { name: "Languages", icon: Globe, value: "languages", current: false },
+  {
+    name: "Soft Skills",
+    icon: UserRoundCog,
+    value: "soft-skills",
+    current: false,
+  },
+  {
+    name: "Education",
+    icon: GraduationCap,
+    value: "education",
+    current: false,
+  },
+  { name: "Projects", icon: Presentation, value: "projects", current: false },
+];
+
 export default function SideNav() {
-  const [openSidebar, setOpenSidebar] = useState(false);
+  const [navigation, setNavigation] = useState(initialNavigation);
+
+  const handleClick = (value: string) => {
+    setNavigation((prev) =>
+      prev.map((item) => ({
+        ...item,
+        current: item.value === value, // only clicked one gets true
+      }))
+    );
+  };
 
   return (
     <div
       className={clsx(
-        "sticky top-0 h-screen left-0 border border-r overflow-hidden w-4xl border-white/5 bg-white px-2 dark:bg-prime-dark transition-all duration-400 ease-in-out z-50"
+        "sticky top-0 h-screen left-0 border border-r overflow-hidden w-4xl border-white/5 bg-white dark:bg-prime-dark z-50"
       )}
     >
-      <div className="h-full flex-col  relative flex bg-prime-dark">
-        <div
-          onClick={() => setOpenSidebar(!openSidebar)}
-          className="h-7 w-7 flex shrink-0 items-center cursor-pointer absolute right-1 top-1 z-20 hover:text-white/80 text-white/60"
-        >
-          {!openSidebar ? <SidebarOpenIcon /> : <SidebarCloseIcon />}
+      <div className="h-full relative flex gap-2 bg-prime-dark p-4">
+        <div className="bg-prime/20 px-2 rounded-l-sm w-9 flex flex-col items-center">
+          {navigation.map((item) => (
+            <SidebarItem
+              key={item.name}
+              icon={item.icon}
+              value={item.value}
+              isCurrent={item.current}
+              onClick={() => handleClick(item.value)}
+            />
+          ))}
         </div>
-        <nav className="relative flex flex-1 flex-col overflow-hidden pr-14 py-4">
-          <div className="p-4 h-full w-full bg-prime/20 rounded-sm">
-            <div className="text-lg">Edit Details</div>
-            <p className="text-sm text-white/60 mb-4">
-              You can edit your details here. Click on any section to modify the
-              content. Your changes will be reflected in real-time on the resume
-              preview.
-            </p>
+        <nav className="relative flex flex-1 flex-col overflow-hidden">
+          <div className="h-full w-full bg-prime/20 rounded-sm">
+            {/* Content Here */}
           </div>
         </nav>
       </div>
     </div>
   );
 }
+
+export const SidebarItem = ({
+  icon: Icon,
+  value,
+  isCurrent,
+  onClick,
+}: {
+  icon: React.ComponentType;
+  isCurrent: boolean;
+  value: string;
+  onClick: () => void;
+}) => {
+  const setNavHighlight = useSetAtom(navHighlightAtom);
+  return (
+    <div
+      onMouseEnter={() => setNavHighlight(value)}
+      onMouseLeave={() => setNavHighlight("")}
+      onClick={onClick}
+      data-target={value}
+      className={clsx(
+        "flex items-center gap-2 p-2 w-9 h-9 cursor-pointer",
+        isCurrent
+          ? "bg-prime/40 text-white"
+          : "hover:bg-prime/30 text-white/60 hover:text-white"
+      )}
+    >
+      <Icon />
+    </div>
+  );
+};

@@ -27,3 +27,5 @@ export const initialState: OrType = {
 export const portalModalAtom = atom(false);
 
 export const orAtom = atomWithStorage("or", initialState);
+
+export const navHighlightAtom = atom("");

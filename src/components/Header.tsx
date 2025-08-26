@@ -2,7 +2,7 @@
 
 const Header = () => {
   return (
-    <header className="flex flex-col items-center justify-center gap-2 flex-1/3">
+    <header className="flex flex-col items-center justify-center gap-2 flex-1/3 group-hover/nav:[data-target=identity]:border ">
       <div className="size-18 dark:bg-white bg-prime rounded-full p-0.5">
         <img
           src="https://avatars.githubusercontent.com/u/81989128"
