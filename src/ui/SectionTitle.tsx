@@ -16,7 +16,7 @@ const SectionTitle = (props: Props) => {
 
   return (
     <div className="pb-2 flex gap-2 items-center text-xs uppercase">
-      <div className="p-1 rounded-sm bg-sec w-fit">{enhancedChild}</div>
+      <div className="w-fit">{enhancedChild}</div>
       <span className="tracking-wider text-prime font-semibold dark:text-white">
         {title}
       </span>

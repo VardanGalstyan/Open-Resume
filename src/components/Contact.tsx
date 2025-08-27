@@ -1,12 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 
+import { navHighlightAtom } from "@/app/state";
+import clsx from "clsx";
+import { useAtomValue } from "jotai";
 import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 
 const Contact = () => {
+  const sectionValue = useAtomValue(navHighlightAtom);
+
   return (
-    <div className="flex flex-col items-end dark:text-light text-prime justify-start gap-2 py-2 w-full">
+    <div
+      className={clsx(
+        "flex flex-col items-end dark:text-light text-prime justify-start gap-2 py-2 w-full",
+        sectionValue === "contact" && "bg-prime/10"
+      )}
+    >
       <div className="flex items-center gap-2">
         <p className="text-sm">+49 176 70490724</p>
         <div className="bg-sec p-1 rounded-sm">

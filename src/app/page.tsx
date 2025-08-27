@@ -12,7 +12,7 @@ export default async function Home() {
   const [width, height] = sizeA4.map((size) => (size * 96) / 25.4);
 
   return (
-    <div className="flex group/nav">
+    <div className="flex">
       <SideNav />
       <div className="flex flex-col items-center justify-center min-h-screen p-4 bg font-roboto w-full">
         <div

@@ -1,8 +1,20 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 
+import { navHighlightAtom } from "@/app/state";
+import clsx from "clsx";
+import { useAtomValue } from "jotai";
+
 const Header = () => {
+  const sectionValue = useAtomValue(navHighlightAtom);
+
   return (
-    <header className="flex flex-col items-center justify-center gap-2 flex-1/3 group-hover/nav:[data-target=identity]:border ">
+    <header
+      className={clsx(
+        "flex flex-col items-center justify-center gap-2 flex-1/3",
+        sectionValue === "identity" && "bg-prime/10"
+      )}
+    >
       <div className="size-18 dark:bg-white bg-prime rounded-full p-0.5">
         <img
           src="https://avatars.githubusercontent.com/u/81989128"
