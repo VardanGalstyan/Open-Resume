@@ -11,16 +11,12 @@ import {
   Globe,
   GraduationCap,
   Presentation,
-  TypeOutline,
-  UserIcon,
   UserRoundCog,
 } from "lucide-react";
 import { useState } from "react";
 
 const initialNavigation = [
-  { name: "Identity", icon: UserIcon, value: "identity", current: true },
-  { name: "Contact", icon: ContactIcon, value: "contact", current: false },
-  { name: "Profile", icon: TypeOutline, value: "profile", current: false },
+  { name: "Contact", icon: ContactIcon, value: "contact", current: true },
   { name: "Experience", icon: Briefcase, value: "experience", current: false },
   { name: "Technical Skills", icon: Cpu, value: "tech-skills", current: false },
   { name: "Languages", icon: Globe, value: "languages", current: false },

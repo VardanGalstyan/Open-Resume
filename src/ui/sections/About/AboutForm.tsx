@@ -35,7 +35,7 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
       <div className="relative flex flex-col gap-2">
         <InputField
           label="Full Name"
-          name="my-name"
+          name="name"
           value={aboutText}
           placeholder="Enter your full name here..."
           onChange={(e) => setAboutText(e.target.value)}
@@ -59,7 +59,7 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
           label="Phone Number"
           name="phone-number"
           type="phone"
-          value={aboutText}
+          value={"phone"}
           placeholder="e.g. +123 456 7890"
           onChange={(e) => setAboutText(e.target.value)}
         />
