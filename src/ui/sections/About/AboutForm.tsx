@@ -2,7 +2,7 @@
 
 import { portalModalAtom } from "@/app/state";
 import { OrType } from "@/app/types";
-import TextLimit from "@/ui/TextLimit";
+import InputField from "@/ui/input-group/input-field";
 import { useSetAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -30,15 +30,70 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
     setIsModalOpen(false);
   }
 
-  const textLimit = 360;
-
   return (
     <form className="w-full space-y-3">
-      <div className="relative">
-        <textarea
-          name="about-us"
-          className="w-full shadow p-2 shadow-sec outline-none text-[15px] resize-none transition-colors focus:ring-2 focus:ring-sec/30 focus:shadow-md"
-          rows={8}
+      <div className="relative flex flex-col gap-2">
+        <InputField
+          label="Full Name"
+          name="my-name"
+          value={aboutText}
+          placeholder="Enter your full name here..."
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="Professional Title"
+          name="professional-title"
+          value={aboutText}
+          placeholder="e.g. Software Engineer"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="Email Address"
+          name="email-address"
+          type="email"
+          value={aboutText}
+          placeholder="e.g. name@familyname.com"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="Phone Number"
+          name="phone-number"
+          type="phone"
+          value={aboutText}
+          placeholder="e.g. +123 456 7890"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="GitHub Username"
+          name="github-account"
+          value={aboutText}
+          placeholder="e.g. github.com/username"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="LinkedIn Profile"
+          name="linkedin-account"
+          value={aboutText}
+          placeholder="e.g. linkedin.com/in/username"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="Professional Title"
+          name="professional-title"
+          value={aboutText}
+          placeholder="e.g. Software Engineer"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="Location"
+          name="location"
+          value={aboutText}
+          placeholder="e.g. City, Country"
+          onChange={(e) => setAboutText(e.target.value)}
+        />
+        <InputField
+          label="About Me"
+          name="about-me"
           value={aboutText}
           maxLength={360}
           placeholder="Summarise your career profile here..."
@@ -46,26 +101,24 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
         />
       </div>
 
-      <div className="flex justify-between items-start">
+      <div className="flex justify-end items-center">
         <div className="flex gap-2">
           <button
             type="submit"
             onClick={saveUpdatedText}
             disabled={aboutText.length === 0}
-            className="px-3 py-1.5 bg-sec text-white rounded-sm cursor-pointer hover:bg-sec/90 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+            className="edit-button"
           >
             Save
           </button>
           <button
             type="button"
             onClick={() => setAboutText(sessionData?.about || "")}
-            className="px-3 py-1.5 bg-gray-200 text-gray-700 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors text-sm font-medium"
+            className="edit-button"
           >
             Reset
           </button>
         </div>
-
-        <TextLimit text={aboutText} limit={textLimit} />
       </div>
     </form>
   );

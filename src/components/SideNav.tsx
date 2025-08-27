@@ -1,6 +1,7 @@
 "use client";
 
 import { navHighlightAtom } from "@/app/state";
+import AboutForm from "@/ui/sections/About/AboutForm";
 import clsx from "clsx";
 import { useSetAtom } from "jotai";
 import {
@@ -71,39 +72,11 @@ export default function SideNav() {
         <nav className="relative flex flex-1 flex-col overflow-hidden">
           <div className="h-full w-full bg-prime/20 rounded-sm">
             {/* Content Here */}
-            <form className="flex flex-col gap-2 items-end p-2">
+            <div className="flex flex-col gap-2 items-end p-2">
               <div className="-space-y-px w-full">
-                <div className="rounded-t-md bg-white px-3 pt-2.5 pb-1.5 outline-1 -outline-offset-1 outline-gray-300 focus-within:relative focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600 dark:bg-white/5 dark:outline-gray-700 dark:focus-within:outline-indigo-500">
-                  <label
-                    htmlFor="name"
-                    className="block text-xs font-medium text-gray-900 dark:text-gray-200"
-                  >
-                    About Me
-                  </label>
-                  <input
-                    id="about-me"
-                    name="about-me"
-                    type="text"
-                    placeholder="A few lines about yourself"
-                    className="block w-full text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 dark:bg-transparent dark:text-white dark:placeholder:text-gray-500"
-                  />
-                </div>
+                <AboutForm />
               </div>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  className="bg-white px-4 py-2.5 text-sm text-gray-900 shadow-xs cursor-pointer inset-ring inset-ring-gray-300 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:shadow-none dark:inset-ring-white/5 dark:hover:bg-white/10"
-                >
-                  Reset
-                </button>
-                <button
-                  type="submit"
-                  className="bg-white px-4 py-2.5 text-sm text-gray-900 shadow-xs cursor-pointer inset-ring inset-ring-gray-300 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:shadow-none dark:inset-ring-white/5 dark:hover:bg-white/10"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+            </div>
           </div>
         </nav>
       </div>
