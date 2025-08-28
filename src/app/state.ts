@@ -3,7 +3,16 @@ import { atomWithStorage } from "jotai/utils";
 import { OrType } from "./types";
 
 export const initialState: OrType = {
-  about: "This is initial text",
+  personal: {
+    about: "This is initial text",
+    name: "",
+    professionalTitle: "",
+    github: "",
+    linkedin: "",
+    email: "",
+    phone: "",
+    location: "",
+  },
   experience: [
     {
       title: "Tech Lead",

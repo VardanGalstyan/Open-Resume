@@ -5,4 +5,18 @@ type ExperienceItem = {
   steps: string[];
 };
 
-export type OrType = { about: string; experience: ExperienceItem[] };
+type PersonalItemType = {
+  name: string;
+  professionalTitle: string;
+  email: string;
+  location: string;
+  phone: string;
+  github: string;
+  linkedin: string;
+  about: string;
+};
+
+export type OrType = {
+  personal: PersonalItemType;
+  experience: ExperienceItem[];
+};
