@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { OrType } from "@/app/types";
+import { getSession } from "@/app/lib/session-helpers";
 
-const Header = ({ data }: { data?: OrType["personal"] }) => {
-  const { name = "Your Name", professionalTitle = "Your Title" } = data || {};
+const Header = async () => {
+  const { data } = await getSession();
 
   return (
     <header
@@ -19,10 +19,10 @@ const Header = ({ data }: { data?: OrType["personal"] }) => {
       </div>
       <div className="flex flex-col items-center ">
         <div className="uppercase tracking-wide font-semibold text-3xl dark:text-white text-prime whitespace-nowrap">
-          {name}
+          {data?.personal.name}
         </div>
         <h1 className="text-lg tracking-wider uppercase text-sec whitespace-nowrap">
-          {professionalTitle}
+          {data?.personal.professionalTitle}
         </h1>
       </div>
     </header>

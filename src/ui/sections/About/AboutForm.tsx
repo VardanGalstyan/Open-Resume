@@ -1,28 +1,29 @@
 "use client";
 
+import { DataContext } from "@/app/lib/dataProvider";
 import { portalModalAtom } from "@/app/state";
 import { OrType } from "@/app/types";
 import InputField from "@/ui/input-group/input-field";
+import TextLimit from "@/ui/TextLimit";
 import { useSetAtom } from "jotai";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-function AboutForm({ sessionData }: { sessionData?: OrType }) {
-  console.log("🚀 ~ AboutForm ~ sessionData:", sessionData);
+function AboutForm() {
   const router = useRouter();
+  const resumeData = useContext(DataContext);
 
   const setIsModalOpen = useSetAtom(portalModalAtom);
 
   const [personalInfo, setPersonalInfo] = useState(
-    sessionData?.personal || ({} as OrType["personal"])
+    resumeData.personal || ({} as OrType["personal"])
   );
-  console.log("🚀 ~ AboutForm ~ personalInfo:", personalInfo);
 
   async function saveResume(resumeData: OrType["personal"]) {
     await fetch("/api/save-resume", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...sessionData, personal: resumeData }),
+      body: JSON.stringify({ ...resumeData, personal: personalInfo }),
     });
 
     router.refresh();
@@ -94,14 +95,28 @@ function AboutForm({ sessionData }: { sessionData?: OrType }) {
           placeholder="e.g. City, Country"
           onChange={(e) => updatePersonalInfo("location", e.target.value)}
         />
-        <InputField
-          label="About Me"
-          name="about-me"
-          value={personalInfo.about || ""}
-          maxLength={360}
-          placeholder="Summarise your career profile here..."
-          onChange={(e) => updatePersonalInfo("about", e.target.value)}
-        />
+        <div className="input-wrapper-style">
+          <label
+            htmlFor="about-me"
+            className="block text-xs font-medium text-gray-900 dark:text-gray-200"
+          >
+            About Me
+          </label>
+          <textarea
+            placeholder="Summarise your career profile here..."
+            onChange={(e) => updatePersonalInfo("about", e.target.value)}
+            maxLength={360}
+            rows={6}
+            value={personalInfo.about}
+            className="input-style"
+          />
+          <div className="absolute bottom-1.5 right-6 text-xs text-gray-400 dark:text-gray-500">
+            <TextLimit
+              text={personalInfo.about?.toString() || ""}
+              limit={360}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex justify-end items-center">

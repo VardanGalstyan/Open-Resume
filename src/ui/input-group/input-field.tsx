@@ -1,5 +1,4 @@
 import { InputHTMLAttributes } from "react";
-import TextLimit from "../TextLimit";
 
 type Props = {
   label: string;
@@ -18,14 +17,6 @@ const InputField = ({ label, ...props }: Props) => {
         className="block w-full text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 dark:bg-transparent dark:text-white dark:placeholder:text-gray-500"
         {...props}
       />
-      {props.maxLength && (
-        <div className="absolute bottom-1.5 right-3 text-xs text-gray-400 dark:text-gray-500">
-          <TextLimit
-            text={props.value?.toString() || ""}
-            limit={props.maxLength || 0}
-          />
-        </div>
-      )}
     </div>
   );
 };

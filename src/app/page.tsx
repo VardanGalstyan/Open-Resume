@@ -3,7 +3,9 @@ import Contact from "@/components/Contact";
 // import DarkToggle from "@/components/DarkToggle";
 import Header from "@/components/Header";
 import SideNav from "@/components/Sidebar";
+import { DataProvider } from "./lib/dataProvider";
 import { getSession } from "./lib/session-helpers";
+import { OrType } from "./types";
 
 //TODO import Print and consider keeping this as server-side rendering
 export default async function Home() {
@@ -14,21 +16,23 @@ export default async function Home() {
   const { data } = await getSession();
 
   return (
-    <div className="flex">
-      <SideNav />
-      <div className="flex flex-col items-center justify-center min-h-screen p-4 bg font-roboto w-full">
-        <div
-          style={{ width, height }}
-          className="dark:bg-prime-dark bg-[#F6F4F0] flex items-center justify-start p-8 flex-col gap-4 relative"
-        >
-          {/* <DarkToggle /> */}
-          <div className="flex justify-between w-full border-b border-prime pb-5">
-            <Header data={data?.personal} />
-            <Contact />
+    <DataProvider value={data || ({} as OrType)}>
+      <div className="flex">
+        <SideNav />
+        <div className="flex flex-col items-center justify-center min-h-screen p-4 bg font-roboto w-full">
+          <div
+            style={{ width, height }}
+            className="dark:bg-prime-dark bg-[#F6F4F0] flex items-center justify-start p-8 flex-col gap-4 relative"
+          >
+            {/* <DarkToggle /> */}
+            <div className="flex justify-between w-full border-b border-prime pb-5">
+              <Header />
+              <Contact />
+            </div>
+            <Body />
           </div>
-          <Body />
         </div>
       </div>
-    </div>
+    </DataProvider>
   );
 }

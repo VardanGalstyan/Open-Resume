@@ -1,17 +1,19 @@
-import { OrType } from "@/app/types";
-import clsx from "clsx";
+import { getSession } from "@/app/lib/session-helpers";
 import { FaUser } from "react-icons/fa";
 import SectionTitle from "../../SectionTitle";
 
-const About = ({ data }: { data?: OrType }) => {
-  const about = data?.personal?.about || "Kindly write about yourself";
+const About = async () => {
+  const { data } = await getSession();
 
   return (
-    <section className={clsx("relative h-fit")}>
+    <section className="relative h-fit">
       <SectionTitle title="About me">
         <FaUser />
       </SectionTitle>
-      <p className="dark:text-secondary text-sm text-teal-800">{about}</p>
+
+      <p className="dark:text-secondary text-sm text-teal-800">
+        {data?.personal.about}
+      </p>
     </section>
   );
 };
