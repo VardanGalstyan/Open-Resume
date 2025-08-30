@@ -1,9 +1,7 @@
 "use client";
 
-import { navHighlightAtom } from "@/app/state";
 import AboutForm from "@/ui/sections/About/AboutForm";
 import clsx from "clsx";
-import { useSetAtom } from "jotai";
 import {
   Briefcase,
   ContactIcon,
@@ -91,11 +89,8 @@ export const SidebarItem = ({
   value: string;
   onClick: () => void;
 }) => {
-  const setNavHighlight = useSetAtom(navHighlightAtom);
   return (
     <div
-      onMouseEnter={() => setNavHighlight(value)}
-      onMouseLeave={() => setNavHighlight("")}
       onClick={onClick}
       data-target={value}
       className={clsx(
