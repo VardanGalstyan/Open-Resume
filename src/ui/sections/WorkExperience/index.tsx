@@ -1,11 +1,10 @@
 "use client";
 
-import SectionTitle from "@/ui/SectionTitle";
-import { MdWork } from "react-icons/md";
-// import WorkExpForm from "./WorkExpForm";
 import { orAtom } from "@/app/state";
 import EditButton from "@/ui/buttons/edit-button";
+import SectionTitle from "@/ui/SectionTitle";
 import { useAtomValue } from "jotai";
+import { MdWork } from "react-icons/md";
 
 const WorkExperience = () => {
   const { experience } = useAtomValue(orAtom) ?? [];
@@ -53,8 +52,6 @@ const WorkExperience = () => {
           </div>
         ))}
       </div>
-
-      {/* <WorkExpForm /> */}
     </section>
   );
 };

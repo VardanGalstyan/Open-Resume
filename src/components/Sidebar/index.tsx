@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { SidebarItem } from "./SidebarItem";
 import { initialNavigation } from "./navData";
+import WorkExpForm from "@/ui/sections/WorkExperience/WorkExpForm";
 
 export default function SideNav() {
   const [navigation, setNavigation] = useState(initialNavigation);
@@ -18,6 +19,8 @@ export default function SideNav() {
       }))
     );
   };
+
+  const currentValue = navigation.find((v) => v.current)?.value;
 
   return (
     <div
@@ -41,7 +44,13 @@ export default function SideNav() {
             {/* Content Here */}
             <div className="flex flex-col gap-2 items-end p-2">
               <div className="-space-y-px w-full">
-                <AboutForm />
+                {currentValue === "contact" ? (
+                  <AboutForm />
+                ) : currentValue === "experience" ? (
+                  <WorkExpForm />
+                ) : (
+                  currentValue
+                )}
               </div>
             </div>
           </div>
