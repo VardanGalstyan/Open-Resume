@@ -16,7 +16,3 @@ Clone the repository and follow the setup instructions in the documentation to s
 ## Contributing
 
 Contributions are welcome! Please open issues or submit pull requests to help improve Open Resume.
-
-## License
-
-This project is licensed under the MIT License.
